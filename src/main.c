@@ -6,12 +6,13 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:21:42 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 17:43:39 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/02/28 18:26:31 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
+/*
 static void	ft_play_the_game(int ***m)
 {
 	ft_add_value(m);
@@ -24,6 +25,64 @@ static void	ft_play_the_game(int ***m)
 		ft_putendl("false");
 	ft_array_print(*m);
 	ft_array_del(m);
+}
+*/
+
+static void	ft_play_the_game(int ***m)
+{
+	int key;
+	WINDOW *screen;
+
+	ft_add_value(m);
+	ft_add_value(m);
+
+	screen = initscr();
+	noecho();
+	curs_set(FALSE);
+	keypad(screen, TRUE);
+	print_grille(*m);
+	while (1)
+	{
+		key = getch();
+		if (key == KEY_UP)
+		{
+			mvprintw(10, 10, "KEY UP");
+			ft_move_up(m);
+			ft_add_value(m);
+			clear();
+			print_grille(*m);
+		}
+		if (key == KEY_DOWN)
+		{
+			mvprintw(10, 10, "KEY DOWN");
+			ft_move_down(m);
+			ft_add_value(m);
+			clear();
+			print_grille(*m);
+		}
+		if (key == KEY_LEFT)
+		{
+			mvprintw(10, 10, "KEY LEFT");
+			ft_move_left(m);
+			ft_add_value(m);
+			clear();
+			print_grille(*m);
+		}
+		if (key == KEY_RIGHT)
+		{
+			mvprintw(10, 10, "KEY RIGHT");
+			ft_move_right(m);
+			ft_add_value(m);
+			clear();
+			print_grille(*m);
+		}
+		if (key == ECHP)
+		{
+			ft_array_del(m);
+			break ;
+		}
+	}
+	endwin();
 }
 
 int			main(void)

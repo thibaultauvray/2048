@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/02/28 16:26:52 by anouvel          ###   ########.fr        #
+#    Updated: 2015/02/28 18:13:24 by anouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCTLS	=	$(DIRSRC)tools/
 
 SRC		=	$(DIRSRC)main.c \
 			$(DIRSRC)ft_init.c \
+			$(DIRSRC)print.c \
 			$(SRCALG)ft_add_value.c \
 			$(SRCALG)ft_movement.c \
 			$(SRCALG)ft_left.c \
@@ -47,7 +48,7 @@ CC		=	gcc
 OBJ		=	$(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 LCFLAG	=	-Wall -Wextra -Werror -Os
 LDFLAG	=	-I $(DIRINC) -I libft/includes/
-LIBS	=	-L libft -lft
+LIBS	=	-L libft -lft -lncurses
 
 # **************************************************************************** #
 
