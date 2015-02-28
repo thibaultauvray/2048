@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:21:42 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 18:39:18 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/02/28 19:14:50 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,41 +44,34 @@ static void	ft_play_the_game(int ***m)
 	noecho();
 	curs_set(FALSE);
 	keypad(screen, TRUE);
-	print_grille(*m);
 	while (1)
 	{
+		clear();
+		print_grille(m);
 		key = getch();
 		if (key == KEY_UP)
 		{
 			mvprintw(10, 10, "KEY UP");
 			ft_move_up(m);
 			ft_add_value(m);
-			clear();
-			print_grille(*m);
 		}
 		if (key == KEY_DOWN)
 		{
 			mvprintw(10, 10, "KEY DOWN");
 			ft_move_down(m);
 			ft_add_value(m);
-			clear();
-			print_grille(*m);
 		}
 		if (key == KEY_LEFT)
 		{
 			mvprintw(10, 10, "KEY LEFT");
 			ft_move_left(m);
 			ft_add_value(m);
-			clear();
-			print_grille(*m);
 		}
 		if (key == KEY_RIGHT)
 		{
 			mvprintw(10, 10, "KEY RIGHT");
 			ft_move_right(m);
 			ft_add_value(m);
-			clear();
-			print_grille(*m);
 		}
 		if (key == ECHP)
 		{
