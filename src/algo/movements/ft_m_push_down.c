@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_movement.c                                      :+:      :+:    :+:   */
+/*   ft_m_push_down.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 14:55:03 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 16:41:14 by anouvel          ###   ########.fr       */
+/*   Created: 2015/02/28 20:27:03 by anouvel           #+#    #+#             */
+/*   Updated: 2015/02/28 20:30:57 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-int	ft_movement(int ***m)
+int	ft_m_push_down(int ***m)
 {
-	int i;
-	int j;
+	int x;
+	int y;
+	int xx;
+	int ret;
 
-	i = 1;
-	while (i < 3)
+	ret = 0;
+	y = -1;
+	while (++y < 4)
 	{
-		j = 0;
-		while (j < 3)
+		x = 4;
+		while (--x > 0)
 		{
-			if ((*m)[i][j] == 0)
-				return (0);
-			if ((*m)[i][j] == (*m)[i + 1][j] || (*m)[i][j] == (*m)[i][j + 1])
-				return (0);
-			j++;
+			if ((*m)[x][y] == 0)
+			{
+				xx = x - 1;
+				while (xx > 0 && (*m)[xx][y] == 0)
+					xx--;
+				if ((*m)[x][y] != (*m)[xx][y])
+					ret = 1;
+				(*m)[x][y] = (*m)[xx][y];
+				(*m)[xx][y] = 0;
+			}
 		}
-		i++;
 	}
-	return (1);
+	return (ret);
 }

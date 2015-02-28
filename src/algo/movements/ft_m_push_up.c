@@ -1,68 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_up.c                                            :+:      :+:    :+:   */
+/*   ft_m_push_up.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 16:24:33 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 16:44:55 by anouvel          ###   ########.fr       */
+/*   Created: 2015/02/28 20:26:48 by anouvel           #+#    #+#             */
+/*   Updated: 2015/02/28 20:29:13 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-static void	ft_push_up(int ***m)
+int	ft_m_push_up(int ***m)
 {
 	int x;
 	int y;
 	int xx;
+	int ret;
 
-	y = 0;
-	while (y < 4)
+	ret = 0;
+	y = -1;
+	while (++y < 4)
 	{
-		x = 0;
-		while (x < 3)
+		x = -1;
+		while (++x < 3)
 		{
 			if ((*m)[x][y] == 0)
 			{
 				xx = x + 1;
 				while (xx < 3 && (*m)[xx][y] == 0)
 					xx++;
+				if ((*m)[x][y] != (*m)[xx][y])
+					ret = 1;
 				(*m)[x][y] = (*m)[xx][y];
 				(*m)[xx][y] = 0;
 			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void		ft_move_up(int ***m)
-{
-	int	x;
-	int y;
-	int xx;
-
-	y = -1;
-	while (++y < 4)
-	{
-		x = 0;
-		while (x < 3)
-		{
-			if ((*m)[x][y] != 0)
-			{
-				xx = x + 1;
-				while (xx < 3 && (*m)[xx][y] == 0)
-					xx++;
-				if ((*m)[x][y] == (*m)[xx][y])
-				{
-					(*m)[x][y] *= 2;
-					(*m)[xx][y] = 0;
-				}
-			}
-			x++;
 		}
 	}
-	ft_push_up(m);
+	return (ret);
 }

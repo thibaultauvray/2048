@@ -1,49 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_down.c                                          :+:      :+:    :+:   */
+/*   ft_m_move_down.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 16:25:23 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 16:44:20 by anouvel          ###   ########.fr       */
+/*   Created: 2015/02/28 20:09:12 by anouvel           #+#    #+#             */
+/*   Updated: 2015/02/28 20:25:53 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-static void	ft_push_down(int ***m)
+static int	ft_m_move_replace_x(int ***m, int x, int y, int xx)
 {
-	int x;
-	int y;
-	int xx;
-
-	y = 0;
-	while (y < 4)
+	if ((*m)[x][y] == (*m)[xx][y])
 	{
-		x = 3;
-		while (x > 0)
-		{
-			if ((*m)[x][y] == 0)
-			{
-				xx = x - 1;
-				while (xx > 0 && (*m)[xx][y] == 0)
-					xx--;
-				(*m)[x][y] = (*m)[xx][y];
-				(*m)[xx][y] = 0;
-			}
-			x--;
-		}
-		y++;
+		(*m)[x][y] *= 2;
+		(*m)[xx][y] = 0;
+		return (1);
 	}
+	return (0);
 }
 
-void		ft_move_down(int ***m)
+int			ft_m_move_down(int ***m)
 {
 	int	x;
 	int y;
 	int xx;
+	int ret;
 
+	ret = 0;
 	y = -1;
 	while (++y < 4)
 	{
@@ -55,14 +42,11 @@ void		ft_move_down(int ***m)
 				xx = x - 1;
 				while (xx > 0 && (*m)[xx][y] == 0)
 					xx--;
-				if ((*m)[x][y] == (*m)[xx][y])
-				{
-					(*m)[x][y] *= 2;
-					(*m)[xx][y] = 0;
-				}
+				if ((ft_m_move_replace_x(m, x, y, xx)) == 1)
+					ret = 1;
 			}
 			x--;
 		}
 	}
-	ft_push_down(m);
+	return (ret);
 }

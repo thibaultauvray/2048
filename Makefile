@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/02/28 18:13:24 by anouvel          ###   ########.fr        #
+#    Updated: 2015/02/28 20:13:58 by anouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,18 +21,24 @@ NAME	=	game_2048
 DIRSRC	=	src/
 
 SRCALG	=	$(DIRSRC)algo/
+SRCMOV	=	$(SRCALG)movements/
 SRCTLS	=	$(DIRSRC)tools/
 
-SRC		=	$(DIRSRC)main.c \
+SRC		=	$(DIRSRC)game.c \
 			$(DIRSRC)ft_init.c \
 			$(DIRSRC)print.c \
-			$(SRCALG)ft_add_value.c \
-			$(SRCALG)ft_movement.c \
-			$(SRCALG)ft_left.c \
-			$(SRCALG)ft_right.c \
-			$(SRCALG)ft_up.c \
-			$(SRCALG)ft_down.c \
 			$(SRCTLS)ft_array_tools.c \
+			$(SRCALG)ft_a_add_value.c \
+			$(SRCALG)ft_a_blocked.c \
+			$(SRCMOV)ft_m_select.c \
+			$(SRCMOV)ft_m_move_left.c \
+			$(SRCMOV)ft_m_move_right.c \
+			$(SRCMOV)ft_m_move_down.c \
+			$(SRCMOV)ft_m_move_up.c \
+			$(SRCMOV)ft_m_push_left.c \
+			$(SRCMOV)ft_m_push_right.c \
+			$(SRCMOV)ft_m_push_down.c \
+			$(SRCMOV)ft_m_push_up.c \
 
 # **************************************************************************** #
 # 	DIRECTORIES

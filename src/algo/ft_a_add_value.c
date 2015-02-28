@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:27:35 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 17:10:47 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/02/28 19:25:29 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	ft_put_value(int ***m, int x, int v)
 	(*m)[x][y] = v;
 }
 
-void		ft_add_value(int ***m)
+void		ft_a_add_value(int ***m)
 {
 	int	v;
 	int x;
