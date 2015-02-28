@@ -70,9 +70,13 @@ void	draw_square(int x, int y, int p, int p2)
 {
 	int	x1;
 	int y1;
+	int	mo_x;
+	int	mo_y;
 
 	x1 = x;
 	y1 = y;
+	mo_x = (x + p) / 2;
+	mo_y = (y + p2) / 2;
 	while (y1 <= p2)
 	{
 		while (x1 <= p)
@@ -81,6 +85,8 @@ void	draw_square(int x, int y, int p, int p2)
 				mvprintw(y1, x1, "|");
 			if ((y1 == p2 && x1 <= p) || y1 == y)
 				mvprintw(y1, x1, "-");
+			if (x1 == mo_x && y1 == mo_y)
+				mvprintw(y1, x1, "%i", mo_y);
 			x1++;
 		}
 		x1 = 0;
@@ -96,32 +102,50 @@ void	print_grille(int ***tab)
 	int	m_y;
 	int	p;
 	int	p2;
+	int	i;
+	int	o;
 
+	i = 0;
+	o = 0;
 	(void)tab;
 	getmaxyx(stdscr, m_y, m_x);
 	m_y--;
 	m_x--;
-//	x = m_x / 4;
-//	y = m_y / 4;
-	x = 0;
+	//	x = m_x / 4;
+	//	y = m_y / 4;
+	x = (m_x / 4 ) * 0;
 	y = m_y / 4;
-	p = (m_x / 4);
+	p = (m_x / 4) * 1;
 	p2 = (m_y / 4) * 2;
 
+	while (i <= 4)
+	{
+		while (o <= 4)
+		{
+			x = (m_x / 4 ) * (o - 1);
+			y = (m_y / 4) * (o - 1);
+			p = (m_x / 4) * i;
+			p2 = (m_y / 4) * o;
+			draw_square(x, y, p, p2);
+			o++;
+		}
+		o = 0;
+		i++;
+	}
 	draw_square(x, y, p, p2);
-//	while (y <= p2)
-//	{
-//		while (x <= p)
-//		{
-//			if (x == p || x == (m_x / 4))
-//				mvprintw(y, x, "|");
-//			if ((y == p2 && x >= (m_x / 4)) || y == m_y / 4)
-//				mvprintw(y, x, "-");
-//			x++;
-//		}
-//		x = 0;
-//		y++;
-//	}
+	//	while (y <= p2)
+	//	{
+	//		while (x <= p)
+	//		{
+	//			if (x == p || x == (m_x / 4))
+	//				mvprintw(y, x, "|");
+	//			if ((y == p2 && x >= (m_x / 4)) || y == m_y / 4)
+	//				mvprintw(y, x, "-");
+	//			x++;
+	//		}
+	//		x = 0;
+	//		y++;
+	//	}
 }
 
 /*
