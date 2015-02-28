@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/02/28 20:13:58 by anouvel          ###   ########.fr        #
+#    Updated: 2015/02/28 20:39:40 by anouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCMOV	=	$(SRCALG)movements/
 SRCTLS	=	$(DIRSRC)tools/
 
 SRC		=	$(DIRSRC)game.c \
-			$(DIRSRC)ft_init.c \
 			$(DIRSRC)print.c \
 			$(SRCTLS)ft_array_tools.c \
 			$(SRCALG)ft_a_add_value.c \
