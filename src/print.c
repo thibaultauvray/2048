@@ -11,7 +11,39 @@
 
 #include "wong.h"
 
-void	print_grille(int **tab)
+void	print_number(int max_x, int max_y, int ***tab)
+{
+	int		p;
+	int		p2;
+	int		x;
+	int		y;
+	int		o;
+	int		q;
+
+	x = 0;
+	y = 0;
+	p = ((max_y - 5) / 4) / 2;
+	p2 = ((max_x - 5) / 4) / 2;
+	o = 0;
+	q = 0;
+	while (y <= 3)
+	{
+		while (x <= 3)
+		{
+			if ((*tab)[y][x] != 0)
+				mvprintw(p + (q * p), p2 + (o * p2), "%i", (*tab)[y][x]);
+			o = o + 2;
+			x++;
+			mvprintw(50, 50, "%i", (p + (q * p)));
+		}
+		q = q + 2;
+		x = 0;
+		o = 0;
+		y++;
+	}
+}
+
+void	print_grille(int ***tab)
 {
 	int	x;
 	int	y;
@@ -19,8 +51,8 @@ void	print_grille(int **tab)
 	int max_x;
 	int	m;
 	int	m2;
-	int	p;
-	int	p2;
+//	int	p;
+//	int	p2;
 	int i;
 
 	y = 0;
@@ -28,12 +60,11 @@ void	print_grille(int **tab)
 	getmaxyx(stdscr, max_y, max_x);
 	max_x--;
 	max_y--;
-	p = ((max_y - 5) / 4) / 2;
-	p2 = ((max_x - 5) / 4) / 2;
+//	p = ((max_y - 5) / 4) / 2;
+//	p2 = ((max_x - 5) / 4) / 2;
 	m = max_y / 4;
 	m2 = max_x / 4;
 	(void)i;
-	(void)p;
 	while (y <= max_y)
 	{
 		while (x <= max_x)
@@ -44,25 +75,7 @@ void	print_grille(int **tab)
 				mvaddch(y, x, '|');
 			if (x == m2)
 				m2 = m2 + (max_x / 4);
-			mvprintw(p, p2, "%i", tab[0][0]);
-			mvprintw(p, p2 + (2 * p2), "%i", tab[0][1]);
-			mvprintw(p, p2 + (4 * p2), "%i", tab[0][2]);
-			mvprintw(p, p2 + (6 * p2), "%i", tab[0][3]);
-
-			mvprintw(p + (2 * p), p2, "%i", tab[1][0]);
-			mvprintw(p + (2 * p), p2 + (2 * p2), "%i", tab[1][1]);
-			mvprintw(p + (2 * p), p2 + (4 * p2), "%i", tab[1][2]);
-			mvprintw(p + (2 * p), p2 + (6 * p2), "%i", tab[1][3]);
-
-			mvprintw(p + (4 * p), p2, "%i", tab[2][0]);
-			mvprintw(p + (4 * p), p2 + (2 * p2), "%i", tab[2][1]);
-			mvprintw(p + (4 * p), p2 + (4 * p2), "%i", tab[2][2]);
-			mvprintw(p + (4 * p), p2 + (6 * p2), "%i", tab[2][3]);
-
-			mvprintw(p + (6 * p), p2, "%i", tab[3][0]);
-			mvprintw(p + (6 * p), p2 + (2 * p2), "%i", tab[3][1]);
-			mvprintw(p + (6 * p), p2 + (4 * p2), "%i", tab[3][2]);
-			mvprintw(p + (6 * p), p2 + (6 * p2), "%i", tab[3][3]);
+			print_number(max_x, max_y, tab);
 			x++;
 		}
 		if (y == m)
