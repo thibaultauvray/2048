@@ -1,1 +1,2 @@
 http://math.hws.edu/orr/s04/cpsc225/curses.html
+http://viget.com/extend/game-programming-in-c-with-the-ncurses-library
