@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wong.h                                             :+:      :+:    :+:   */
+/*   ft_movement.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/27 21:19:34 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 16:25:02 by anouvel          ###   ########.fr       */
+/*   Created: 2015/02/28 14:55:03 by anouvel           #+#    #+#             */
+/*   Updated: 2015/02/28 16:41:14 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WING_H
-#define WONG_H
+#include "wong.h"
 
-#include <libft.h>
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
-
-enum	e_const
+int	ft_movement(int ***m)
 {
-		WIN_VALUE = 2048
-};
+	int i;
+	int j;
 
-int		ft_init(int ***m);
-void	ft_add_value(int ***m);
-int		ft_movement(int ***m);
-void	ft_move_left(int ***m);
-void	ft_move_right(int ***m);
-void	ft_move_up(int ***m);
-void	ft_move_down(int ***m);
-
-void	ft_array_del(int ***m);
-void	ft_array_print(int **m);
-
-#endif
+	i = 1;
+	while (i < 3)
+	{
+		j = 0;
+		while (j < 3)
+		{
+			if ((*m)[i][j] == 0)
+				return (0);
+			if ((*m)[i][j] == (*m)[i + 1][j] || (*m)[i][j] == (*m)[i][j + 1])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
