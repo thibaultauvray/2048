@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/03/01 15:03:14 by tauvray          ###   ########.fr        #
+#    Updated: 2015/03/01 16:23:54 by anouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,10 @@ DIRSRC	=	src/
 
 SRCALG	=	$(DIRSRC)algo/
 SRCMOV	=	$(SRCALG)movements/
+SRCPRT	=	$(DIRSRC)print/
 SRCTLS	=	$(DIRSRC)tools/
 
-SRC		=	$(DIRSRC)game.c \
-			$(DIRSRC)print.c \
-			$(SRCTLS)ft_array_tools.c \
+SRC		=	$(DIRSRC)ft_game.c \
 			$(SRCALG)ft_a_add_value.c \
 			$(SRCALG)ft_a_blocked.c \
 			$(SRCMOV)ft_m_select.c \
@@ -39,7 +38,9 @@ SRC		=	$(DIRSRC)game.c \
 			$(SRCMOV)ft_m_push_right.c \
 			$(SRCMOV)ft_m_push_down.c \
 			$(SRCMOV)ft_m_push_up.c \
-			$(DIRSRC)ft_error.c \
+			$(SRCPRT)ft_p_print.c \
+			$(SRCPRT)ft_p_error.c \
+			$(SRCTLS)ft_t_array_tools.c \
 
 # **************************************************************************** #
 # 	DIRECTORIES

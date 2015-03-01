@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_game.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 19:26:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 15:53:30 by tauvray          ###   ########.fr       */
+/*   Created: 2015/03/01 16:15:50 by anouvel           #+#    #+#             */
+/*   Updated: 2015/03/01 16:19:16 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static void	ft_play_the_game(int ***m)
 	noecho();
 	curs_set(FALSE);
 	keypad(screen, TRUE);
-	print_grille(m);
+	ft_p_print_grid(m);
 	ret = ft_m_max(m);
 	while (ret != 0)
 	{
 		clear();
-		print_grille(m);
+		ft_p_print_grid(m);
 		key = getch();
 		if (key == KEY_UP)
 			ret = ft_m_action(m, KEY_UP);
@@ -45,7 +45,7 @@ static void	ft_play_the_game(int ***m)
 			ret = ft_m_action(m, KEY_RIGHT);
 		else if (key == ECHP)
 		{
-			ft_array_del(m);
+			ft_t_array_del(m);
 			break ;
 		}
 		else
@@ -55,16 +55,16 @@ static void	ft_play_the_game(int ***m)
 		if (ret == 0)
 		{
 			clear();
-			print_grille(m);
-			ft_print_error(1);
+			ft_p_print_grid(m);
+			ft_p_print_error(1);
 			refresh();
 			sleep(4);
 		}
 		else if (ret == WIN_VALUE && ret_win == 1)
 		{
 			clear();
-			print_grille(m);
-			ft_print_error(2);
+			ft_p_print_grid(m);
+			ft_p_print_error(2);
 			key = getch();
 			refresh();
 			ret_win = 0;
@@ -72,8 +72,8 @@ static void	ft_play_the_game(int ***m)
 		else if (ret == MAX_VALUE)
 		{
 			clear();
-			print_grille(m);
-			ft_print_error(3);
+			ft_p_print_grid(m);
+			ft_p_print_error(3);
 			refresh();
 			sleep(10);
 			ret = 0;

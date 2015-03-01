@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_p_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/01 14:46:53 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 16:10:27 by tauvray          ###   ########.fr       */
+/*   Created: 2015/03/01 16:20:20 by anouvel           #+#    #+#             */
+/*   Updated: 2015/03/01 16:20:41 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void			ft_print_b(char *res)
 	attroff(COLOR_PAIR(1));
 }
 
-void				ft_print_error(int i)
+void				ft_p_print_error(int i)
 {
 	if (i == 1)
 		ft_print_b("YOU FAILED");

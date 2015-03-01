@@ -6,13 +6,13 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:32:41 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 16:09:37 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 16:21:45 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-void				draw_square(int x, int y, t_square t, int tab)
+static void			draw_square(int x, int y, t_square t, int tab)
 {
 	t_square	s;
 
@@ -48,7 +48,7 @@ static t_square		init_square(t_square t)
 	return (t);
 }
 
-int					print_grille(int ***tab)
+int					ft_p_print_grid(int ***tab)
 {
 	t_square	t;
 
