@@ -6,72 +6,77 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:32:41 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 11:16:40 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:45:34 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-void	print_grille(int **tab)
+
+void	draw_square(int x, int y, int p, int p2, int tab)
+{
+	int	x1;
+	int y1;
+	int	mo_x;
+	int	mo_y;
+
+	x1 = x;
+	y1 = y;
+	mo_x = (x + p) / 2;
+	mo_y = (y + p2) / 2;
+	if (tab != 0)
+		mvprintw(mo_y, mo_x, "%i", tab);
+	while (y1 <= p2)
+	{
+		while (x1 <= p)
+		{
+			if (x1 == p || x1 == x)
+				mvprintw(y1, x1, "|");
+			if ((y1 == p2 && x1 <= p) || y1 == y)
+				mvprintw(y1, x1, "-");
+			x1++;
+		}
+		x1 = 0;
+		y1++;
+	}
+}
+
+void	print_grille(int ***tab)
 {
 	int	x;
 	int	y;
-	int max_y;
-	int max_x;
-	int	m;
-	int	m2;
+	int m_x;
+	int	m_y;
 	int	p;
 	int	p2;
-	int i;
+	int	i;
+	int	o;
 
-	y = 0;
-	x = 0;
-	getmaxyx(stdscr, max_y, max_x);
-	max_x--;
-	max_y--;
-	p = ((max_y - 5) / 4) / 2;
-	p2 = ((max_x - 5) / 4) / 2;
-	m = max_y / 4;
-	m2 = max_x / 4;
-	(void)i;
-	(void)p;
-	while (y <= max_y)
+	i = 1;
+	o = 1;
+	(void)tab;
+	getmaxyx(stdscr, m_y, m_x);
+	m_y--;
+	m_x--;
+	//	x = m_x / 4;
+	//	y = m_y / 4;
+	x = (m_x / 4 ) * 0;
+	y = m_y / 4;
+	p = (m_x / 4) * 1;
+	p2 = (m_y / 4) * 2;
+	while (i <= 4)
 	{
-		while (x <= max_x)
+		while (o <= 4)
 		{
-			if ((y == 0 && x <= ((max_x / 4) * 4)) || (y == m && x <= ((max_x / 4) * 4)))
-				mvaddch(y, x, '-');
-			if ((x == 0 && y <= ((max_y / 4) * 4)) || (x == m2 && y <= ((max_y / 4) * 4)))
-				mvaddch(y, x, '|');
-			if (x == m2)
-				m2 = m2 + (max_x / 4);
-			mvprintw(p, p2, "%i", tab[0][0]);
-			mvprintw(p, p2 + (2 * p2), "%i", tab[0][1]);
-			mvprintw(p, p2 + (4 * p2), "%i", tab[0][2]);
-			mvprintw(p, p2 + (6 * p2), "%i", tab[0][3]);
-
-			mvprintw(p + (2 * p), p2, "%i", tab[1][0]);
-			mvprintw(p + (2 * p), p2 + (2 * p2), "%i", tab[1][1]);
-			mvprintw(p + (2 * p), p2 + (4 * p2), "%i", tab[1][2]);
-			mvprintw(p + (2 * p), p2 + (6 * p2), "%i", tab[1][3]);
-
-			mvprintw(p + (4 * p), p2, "%i", tab[2][0]);
-			mvprintw(p + (4 * p), p2 + (2 * p2), "%i", tab[2][1]);
-			mvprintw(p + (4 * p), p2 + (4 * p2), "%i", tab[2][2]);
-			mvprintw(p + (4 * p), p2 + (6 * p2), "%i", tab[2][3]);
-
-			mvprintw(p + (6 * p), p2, "%i", tab[3][0]);
-			mvprintw(p + (6 * p), p2 + (2 * p2), "%i", tab[3][1]);
-			mvprintw(p + (6 * p), p2 + (4 * p2), "%i", tab[3][2]);
-			mvprintw(p + (6 * p), p2 + (6 * p2), "%i", tab[3][3]);
-			x++;
+			x = (m_x / 4 ) * (i - 1);
+			y = (m_y / 4) * (o - 1);
+			p = (m_x / 4) * i;
+			p2 = (m_y / 4) * o;
+			draw_square(x, y, p, p2, (*tab)[o - 1][i - 1]);
+			o++;
 		}
-		if (y == m)
-			m = m + (max_y / 4);
-		y++;
-		m2 = max_x / 4;
-		x = 0;
+		o = 1;
+		i++;
 	}
-	x = 0;
-	y = 0;
 }
+
