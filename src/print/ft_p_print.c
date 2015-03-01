@@ -1,45 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   ft_p_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 10:32:41 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 16:21:45 by anouvel          ###   ########.fr       */
+/*   Created: 2015/03/01 18:06:20 by tauvray           #+#    #+#             */
+/*   Updated: 2015/03/01 18:06:24 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-static void			draw_square(int x, int y, t_square t, int tab)
+static t_square			ft_init_color(t_square s, t_square t, int x, int y)
+{
+	s.m_x = (x + t.p) / 2;
+	s.m_y = (y + t.p2) / 2;
+	start_color();
+	init_pair(1, COLOR_CYAN, COLOR_BLUE);
+	return (s);
+}
+
+static void				draw_square(int x, int y, t_square t, int tab)
 {
 	t_square	s;
 
 	s.x = x;
 	s.y = y;
-	s.m_x = (x + t.p) / 2;
-	s.m_y = (y + t.p2) / 2;
+	s = ft_init_color(s, t, x, y);
 	attron(A_BOLD);
 	if (tab != 0)
 		mvprintw(s.m_y, s.m_x, "%i", tab);
 	attroff(A_BOLD);
+	attron(COLOR_PAIR(1));
 	while (s.y <= t.p2)
 	{
 		while (s.x <= t.p)
 		{
 			if (s.x == t.p || s.x == x)
-				mvprintw(s.y, s.x, "|");
-			if ((s.y == t.p2 && s.x <= t.p) || s.y == y)
-				mvprintw(s.y, s.x, "-");
+				mvprintw(s.y, s.x, " ");
+			else if ((s.y == t.p2 && s.x <= t.p) || s.y == y)
+				mvprintw(s.y, s.x, " ");
 			s.x++;
 		}
 		s.x = 0;
 		s.y++;
 	}
+	attroff(COLOR_PAIR(1));
 }
 
-static t_square		init_square(t_square t)
+static t_square			init_square(t_square t)
 {
 	t.x = (t.m_x / 4) * (t.i - 1);
 	t.y = (t.m_y / 4) * (t.o - 1);
@@ -48,7 +58,7 @@ static t_square		init_square(t_square t)
 	return (t);
 }
 
-int					ft_p_print_grid(int ***tab)
+int						ft_p_print_grid(int ***tab)
 {
 	t_square	t;
 
