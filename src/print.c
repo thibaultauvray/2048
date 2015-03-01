@@ -6,7 +6,7 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:32:41 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 11:45:34 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:47:42 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	print_grille(int ***tab)
 
 	i = 1;
 	o = 1;
-	(void)tab;
 	getmaxyx(stdscr, m_y, m_x);
 	m_y--;
 	m_x--;

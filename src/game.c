@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:26:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 11:16:39 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:48:28 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_play_the_game(int ***m)
 	noecho();
 	curs_set(FALSE);
 	keypad(screen, TRUE);
-	print_grille(*m);
+	print_grille(m);
 	ret = ft_m_max(m);
 	ft_putnbr(ret);
 	if (ret == 0)
@@ -40,25 +40,25 @@ static void	ft_play_the_game(int ***m)
 		{
 			ret = ft_m_action(m, KEY_UP);
 			clear();
-			print_grille(*m);
+			print_grille(m);
 		}
 		else if (key == KEY_DOWN)
 		{
 			ret = ft_m_action(m, KEY_DOWN);
 			clear();
-			print_grille(*m);
+			print_grille(m);
 		}
 		else if (key == KEY_LEFT)
 		{
 			ret = ft_m_action(m, KEY_LEFT);
 			clear();
-			print_grille(*m);
+			print_grille(m);
 		}
 		else if (key == KEY_RIGHT)
 		{
 			ret = ft_m_action(m, KEY_RIGHT);
 			clear();
-			print_grille(*m);
+			print_grille(m);
 		}
 		else if (key == ECHP)
 		{
