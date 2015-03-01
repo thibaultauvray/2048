@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:27:35 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 19:25:29 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:16:55 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,28 @@ static int	ft_zero_line(int ***m, int x)
 		if ((*m)[x][y] == 0)
 			ret++;
 		y++;
+	}
+	return (ret);
+}
+
+static int	ft_zero_grid(int ***m)
+{
+	int ret;
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	ret = 0;
+	while (x < 4)
+	{
+		while (y < 4)
+		{
+			if ((*m)[x][y] == 0)
+				ret++;
+			y++;
+		}
+		x++;
 	}
 	return (ret);
 }
@@ -56,21 +78,24 @@ void		ft_a_add_value(int ***m)
 	int x;
 	int y;
 
-	v = ft_random_value();
-	srand(time(NULL));
-	x = rand() % 4;
-	while (ft_zero_line(m, x) == 0)
-		x = rand() % 4;
-	if (ft_zero_line(m, x) == 1)
-		ft_put_value(m, x, v);
-	else
+	if (ft_zero_grid(m) != 0)
 	{
-		while (42)
+		v = ft_random_value();
+		srand(time(NULL));
+		x = rand() % 4;
+		while (ft_zero_line(m, x) == 0)
+			x = rand() % 4;
+		if (ft_zero_line(m, x) == 1)
+			ft_put_value(m, x, v);
+		else
 		{
-			if ((*m)[x][y = rand() % 4] == 0)
+			while (42)
 			{
-				(*m)[x][y] = v;
-				break ;
+				if ((*m)[x][y = rand() % 4] == 0)
+				{
+					(*m)[x][y] = v;
+					break ;
+				}
 			}
 		}
 	}

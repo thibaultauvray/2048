@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_array_tools.c                                   :+:      :+:    :+:   */
+/*   ft_m_max.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 13:20:22 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 11:24:59 by anouvel          ###   ########.fr       */
+/*   Created: 2015/03/01 11:17:42 by anouvel           #+#    #+#             */
+/*   Updated: 2015/03/01 11:18:28 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-void	ft_array_del(int ***m)
+int	ft_m_max(int ***m)
 {
-	int		**ar;
-	int		i;
+	int ret;
+	int x;
+	int y;
 
-	ar = *m;
-	i = 0;
-	while (i < 4)
+	x = 0;
+	ret = 0;
+	while (x < 4)
 	{
-		free(ar[i]);
-		ar[i] = NULL;
-		i++;
+		y = 0;
+		while (y < 4)
+		{
+			if ((*m)[x][y] > ret)
+				ret = (*m)[x][y];
+			y++;
+		}
+		x++;
 	}
-	free(ar);
-	ar = NULL;
+	return (ret);
 }

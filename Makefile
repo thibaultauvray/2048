@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/02/28 20:39:40 by anouvel          ###   ########.fr        #
+#    Updated: 2015/03/01 11:18:21 by anouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC		=	$(DIRSRC)game.c \
 			$(SRCALG)ft_a_add_value.c \
 			$(SRCALG)ft_a_blocked.c \
 			$(SRCMOV)ft_m_select.c \
+			$(SRCMOV)ft_m_max.c \
 			$(SRCMOV)ft_m_move_left.c \
 			$(SRCMOV)ft_m_move_right.c \
 			$(SRCMOV)ft_m_move_down.c \

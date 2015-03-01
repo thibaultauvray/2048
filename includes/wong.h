@@ -6,30 +6,32 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:19:34 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 21:11:54 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:24:10 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WING_H
-#define WONG_H
+#ifndef WONG_H
+# define WONG_H
 
-#include <libft.h>
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
-#include <ncurses.h>
+# include <libft.h>
+# include <math.h>
+# include <stdlib.h>
+# include <time.h>
+# include <ncurses.h>
 
-#define ECHP	27
+# define ECHP	27
 
 enum	e_const
 {
-		WIN_VALUE = 2048
+	WIN_VALUE = 2048,
+	MAX_VALUE = 131072
 };
 
 void	ft_a_add_value(int ***m);
 int		ft_a_blocked(int ***m);
 
-void 	ft_m_select(int ***, int flag);
+int		ft_m_action(int ***m, int flag);
+int		ft_m_max(int ***m);
 int		ft_m_move_left(int ***m);
 int		ft_m_move_right(int ***m);
 int		ft_m_move_up(int ***m);
@@ -42,6 +44,5 @@ int		ft_m_push_down(int ***m);
 void	print_grille(int **tab);
 
 void	ft_array_del(int ***m);
-void	ft_array_print(int **m);
 
 #endif

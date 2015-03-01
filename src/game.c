@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:26:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 21:11:53 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:16:39 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ static void	ft_play_the_game(int ***m)
 {
 	int key;
 	WINDOW *screen;
+	int ret;
+	int ret_win;
 
+	ret_win = 1;
 	ft_a_add_value(m);
 	ft_a_add_value(m);
 
@@ -26,33 +29,34 @@ static void	ft_play_the_game(int ***m)
 	curs_set(FALSE);
 	keypad(screen, TRUE);
 	print_grille(*m);
-	// int ret = 0;
-	// while (ret == 0);
-	while (1)
+	ret = ft_m_max(m);
+	ft_putnbr(ret);
+	if (ret == 0)
+		sleep(200);
+	while (ret != 0)
 	{
 		key = getch();
 		if (key == KEY_UP)
 		{
-			// ret = ft_m_select(m, KEY_UP);
-			ft_m_select(m, KEY_UP);
+			ret = ft_m_action(m, KEY_UP);
 			clear();
 			print_grille(*m);
 		}
 		else if (key == KEY_DOWN)
 		{
-			ft_m_select(m, KEY_DOWN);
+			ret = ft_m_action(m, KEY_DOWN);
 			clear();
 			print_grille(*m);
 		}
 		else if (key == KEY_LEFT)
 		{
-			ft_m_select(m, KEY_LEFT);
+			ret = ft_m_action(m, KEY_LEFT);
 			clear();
 			print_grille(*m);
 		}
 		else if (key == KEY_RIGHT)
 		{
-			ft_m_select(m, KEY_RIGHT);
+			ret = ft_m_action(m, KEY_RIGHT);
 			clear();
 			print_grille(*m);
 		}
@@ -63,11 +67,22 @@ static void	ft_play_the_game(int ***m)
 		}
 		else
 			ft_putendl("tutu");
-		// if (ret == 1) // alors bloque
-		// print fail -> exit
-		// mettre un booleen "winValue atteinte
-		// else if (ret = WIN_VALUE && bool == FALSE) -> do stg
-		// else if (ret = WIN_MAX) -> stop
+
+		if (ret == 0)
+			mvprintw(20, 20, "%s", "blocked");
+		else if (ret == WIN_VALUE && ret_win == 1)
+		{
+			mvprintw(20, 20, "%s", "you win");
+			refresh();
+			ret_win = 0;
+		}
+		else if (ret == MAX_VALUE)
+		{
+			mvprintw(20, 20, "%s", "you finished the game");
+			refresh();
+			sleep(10);
+			ret = 0;
+		}
 	}
 	endwin();
 }

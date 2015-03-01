@@ -6,13 +6,13 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:35:41 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/28 21:11:52 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 11:18:27 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-void ft_m_select(int ***m, int flag)
+static void	ft_m_select(int ***m, int flag)
 {
 	int retm;
 	int retp;
@@ -37,9 +37,15 @@ void ft_m_select(int ***m, int flag)
 		retm = ft_m_move_right(m);
 		retp = ft_m_push_right(m);
 	}
-	// protect ft_a_add_value()
 	if (retm == 1 || retp == 1)
 		ft_a_add_value(m);
-	// ft_blocked return (maxInt du tableau)
-	// return (ft_a_blocked(m));
+}
+
+int			ft_m_action(int ***m, int flag)
+{
+	ft_m_select(m, flag);
+	if ((ft_a_blocked(m)) == 1)
+		return (0);
+	else
+		return (ft_m_max(m));
 }
