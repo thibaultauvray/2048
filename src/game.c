@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:26:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:23:41 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:49:28 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void	ft_play_the_game(int ***m)
 
 		if (ret == 0)
 		{
+			clear();
+			print_grille(m);
 			mvprintw(20, 20, "%s", "blocked");
 			refresh();
 			sleep(40);

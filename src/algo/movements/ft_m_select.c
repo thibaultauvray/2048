@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:35:41 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:23:32 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:52:33 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_m_select(int ***m, int flag)
 		retm = ft_m_move_left(m);
 		retp = ft_m_push_left(m);
 	}
-	else if(flag == KEY_RIGHT)
+	else if (flag == KEY_RIGHT)
 	{
 		retm = ft_m_move_right(m);
 		retp = ft_m_push_right(m);
