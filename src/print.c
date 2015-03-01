@@ -6,12 +6,11 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:32:41 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 11:47:42 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 12:01:34 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
-
 
 void	draw_square(int x, int y, int p, int p2, int tab)
 {
@@ -41,7 +40,7 @@ void	draw_square(int x, int y, int p, int p2, int tab)
 	}
 }
 
-void	print_grille(int ***tab)
+int		print_grille(int ***tab)
 {
 	int	x;
 	int	y;
@@ -57,12 +56,8 @@ void	print_grille(int ***tab)
 	getmaxyx(stdscr, m_y, m_x);
 	m_y--;
 	m_x--;
-	//	x = m_x / 4;
-	//	y = m_y / 4;
-	x = (m_x / 4 ) * 0;
-	y = m_y / 4;
-	p = (m_x / 4) * 1;
-	p2 = (m_y / 4) * 2;
+	if (m_y < 9 || m_x < 35)
+		return (-1);
 	while (i <= 4)
 	{
 		while (o <= 4)
@@ -77,5 +72,5 @@ void	print_grille(int ***tab)
 		o = 1;
 		i++;
 	}
+	return (0);
 }
-
