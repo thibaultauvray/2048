@@ -6,7 +6,7 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:32:41 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 12:01:34 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:27:16 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,15 @@ void	draw_square(int x, int y, int p, int p2, int tab)
 	y1 = y;
 	mo_x = (x + p) / 2;
 	mo_y = (y + p2) / 2;
+	start_color();
+	init_pair(1, COLOR_BLACK, COLOR_BLUE);
+	attron(A_BOLD);
+	attron(A_UNDERLINE);
 	if (tab != 0)
 		mvprintw(mo_y, mo_x, "%i", tab);
+	attroff(A_BOLD);
+	attroff(A_UNDERLINE);
+	wbkgd(stdscr, COLOR_PAIR(1));
 	while (y1 <= p2)
 	{
 		while (x1 <= p)
