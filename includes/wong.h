@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:19:34 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 15:58:59 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 16:07:57 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ enum	e_const
 	WIN_VALUE = 8,
 	MAX_VALUE = 16
 };
+
+typedef struct	s_square
+{
+	int		x;
+	int		y;
+	int		m_x;
+	int		m_y;
+	int		p;
+	int		p2;
+	int		o;
+	int		i;
+}				t_square;
 
 void	ft_a_add_value(int ***m);
 int		ft_a_blocked(int ***m);
