@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:55:03 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:27:57 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:30:57 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ static int	ft_zero_grid(int ***m)
 		y = 0;
 		while (y < 4)
 		{
-			mvprintw( 5, 3, "X - %i | X + 1 %i", x, x+1);
-			mvprintw( 6, 3, "Y - %i | Y + 1 %i", y, y+1);
-			refresh();
 			if ((*m)[x][y] == 0)
 				ret++;
 			y++;
