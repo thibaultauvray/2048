@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:26:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 11:48:28 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:23:41 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,46 +30,34 @@ static void	ft_play_the_game(int ***m)
 	keypad(screen, TRUE);
 	print_grille(m);
 	ret = ft_m_max(m);
-	ft_putnbr(ret);
-	if (ret == 0)
-		sleep(200);
 	while (ret != 0)
 	{
+		clear();
+		print_grille(m);
 		key = getch();
 		if (key == KEY_UP)
-		{
 			ret = ft_m_action(m, KEY_UP);
-			clear();
-			print_grille(m);
-		}
 		else if (key == KEY_DOWN)
-		{
 			ret = ft_m_action(m, KEY_DOWN);
-			clear();
-			print_grille(m);
-		}
 		else if (key == KEY_LEFT)
-		{
 			ret = ft_m_action(m, KEY_LEFT);
-			clear();
-			print_grille(m);
-		}
 		else if (key == KEY_RIGHT)
-		{
 			ret = ft_m_action(m, KEY_RIGHT);
-			clear();
-			print_grille(m);
-		}
 		else if (key == ECHP)
 		{
 			ft_array_del(m);
 			break ;
 		}
 		else
-			ft_putendl("tutu");
+		{
+		}
 
 		if (ret == 0)
+		{
 			mvprintw(20, 20, "%s", "blocked");
+			refresh();
+			sleep(40);
+		}
 		else if (ret == WIN_VALUE && ret_win == 1)
 		{
 			mvprintw(20, 20, "%s", "you win");
@@ -82,6 +70,9 @@ static void	ft_play_the_game(int ***m)
 			refresh();
 			sleep(10);
 			ret = 0;
+		}
+		else
+		{
 		}
 	}
 	endwin();
