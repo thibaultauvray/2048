@@ -6,13 +6,13 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 14:46:53 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 16:00:58 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 16:10:27 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-static void		ft_print_b(char *res)
+static void			ft_print_b(char *res)
 {
 	int	m_x;
 	int	m_y;
@@ -39,10 +39,9 @@ static void		ft_print_b(char *res)
 	mvprintw((m_y / 2) - 2, (m_x / 2) - 5, "%s", res);
 	attroff(A_BOLD);
 	attroff(COLOR_PAIR(1));
-	refresh();
 }
 
-void	ft_print_error(int	i)
+void				ft_print_error(int i)
 {
 	if (i == 1)
 		ft_print_b("YOU FAILED");
@@ -50,4 +49,5 @@ void	ft_print_error(int	i)
 		ft_print_b("YOU WIN - Continue ?");
 	if (i == 3)
 		ft_print_b("YOU ARE A GENIOUS");
+	refresh();
 }
