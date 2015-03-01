@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:26:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:54:58 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 15:52:04 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,24 @@ static void	ft_play_the_game(int ***m)
 		{
 			clear();
 			print_grille(m);
-			mvprintw(20, 20, "%s", "blocked");
+			ft_print_error(1);
 			refresh();
-			sleep(40);
+			sleep(4);
 		}
 		else if (ret == WIN_VALUE && ret_win == 1)
 		{
-			mvprintw(20, 20, "%s", "you win");
+			clear();
+			print_grille(m);
+			ft_print_error(2);
+			key = getch();
 			refresh();
 			ret_win = 0;
 		}
 		else if (ret == MAX_VALUE)
 		{
-			mvprintw(20, 20, "%s", "you finished the game");
+			clear();
+			print_grille(m);
+			ft_print_error(3);
 			refresh();
 			sleep(10);
 			ret = 0;
