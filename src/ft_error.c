@@ -6,7 +6,7 @@
 /*   By: tauvray <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 14:46:53 by tauvray           #+#    #+#             */
-/*   Updated: 2015/03/01 15:57:51 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 16:00:58 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static void		ft_print_b(char *res)
 		y = (m_y / 2) - 5;
 		x++;
 	}
-	attroff(COLOR_PAIR(1));
 	attron(A_BOLD);
 	mvprintw((m_y / 2) - 2, (m_x / 2) - 5, "%s", res);
 	attroff(A_BOLD);
+	attroff(COLOR_PAIR(1));
 	refresh();
 }
 
