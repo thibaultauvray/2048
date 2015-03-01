@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:19:34 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:51:33 by tauvray          ###   ########.fr       */
+/*   Updated: 2015/03/01 15:56:49 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 enum	e_const
 {
-	WIN_VALUE = 2048,
-	MAX_VALUE = 131072
+	WIN_VALUE = 8,
+	MAX_VALUE = 16
 };
 
 void	ft_a_add_value(int ***m);
