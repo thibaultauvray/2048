@@ -6,7 +6,7 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:19:34 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:23:59 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 14:51:33 by tauvray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int		ft_m_push_down(int ***m);
 int		print_grille(int ***tab);
 
 void	ft_array_del(int ***m);
+void	ft_print_error(int i);
 
 #endif

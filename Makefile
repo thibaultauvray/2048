@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/03/01 11:18:21 by anouvel          ###   ########.fr        #
+#    Updated: 2015/03/01 14:49:57 by tauvray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC		=	$(DIRSRC)game.c \
 			$(SRCMOV)ft_m_push_right.c \
 			$(SRCMOV)ft_m_push_down.c \
 			$(SRCMOV)ft_m_push_up.c \
+			$(DIRSRC)ft_error.c \
 
 # **************************************************************************** #
 # 	DIRECTORIES
