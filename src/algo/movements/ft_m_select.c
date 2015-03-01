@@ -6,11 +6,35 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 19:35:41 by anouvel           #+#    #+#             */
-/*   Updated: 2015/03/01 14:52:33 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 15:05:54 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
+
+static void	ft_m_select_2(int ***m, int flag)
+{
+	int retm;
+	int retp;
+
+	if (flag == KEY_LEFT)
+	{
+		retm = ft_m_move_left(m);
+		retp = ft_m_push_left(m);
+	}
+	else if (flag == KEY_RIGHT)
+	{
+		retm = ft_m_move_right(m);
+		retp = ft_m_push_right(m);
+	}
+	else
+	{
+		retm = 0;
+		retp = 0;
+	}
+	if (retm == 1 || retp == 1)
+		ft_a_add_value(m);
+}
 
 static void	ft_m_select(int ***m, int flag)
 {
@@ -23,24 +47,18 @@ static void	ft_m_select(int ***m, int flag)
 	{
 		retm = ft_m_move_down(m);
 		retp = ft_m_push_down(m);
+		if (retm == 1 || retp == 1)
+			ft_a_add_value(m);
 	}
 	else if (flag == KEY_UP)
 	{
 		retm = ft_m_move_up(m);
 		retp = ft_m_push_up(m);
+		if (retm == 1 || retp == 1)
+			ft_a_add_value(m);
 	}
-	else if (flag == KEY_LEFT)
-	{
-		retm = ft_m_move_left(m);
-		retp = ft_m_push_left(m);
-	}
-	else if (flag == KEY_RIGHT)
-	{
-		retm = ft_m_move_right(m);
-		retp = ft_m_push_right(m);
-	}
-	if (retm == 1 || retp == 1)
-		ft_a_add_value(m);
+	else
+		ft_m_select_2(m, flag);
 }
 
 int			ft_m_action(int ***m, int flag)
