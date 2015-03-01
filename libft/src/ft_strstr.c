@@ -6,12 +6,11 @@
 /*   By: anouvel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 17:19:40 by anouvel           #+#    #+#             */
-/*   Updated: 2015/02/22 15:43:12 by anouvel          ###   ########.fr       */
+/*   Updated: 2015/03/01 15:22:12 by anouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strstr(const char *s1, const char *s2)
 {
