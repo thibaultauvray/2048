@@ -6,7 +6,7 @@
 #    By: anouvel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/27 11:57:55 by anouvel           #+#    #+#              #
-#    Updated: 2015/03/01 16:23:54 by anouvel          ###   ########.fr        #
+#    Updated: 2015/03/01 16:49:19 by anouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCPRT	=	$(DIRSRC)print/
 SRCTLS	=	$(DIRSRC)tools/
 
 SRC		=	$(DIRSRC)ft_game.c \
+			$(DIRSRC)ft_window.c \
 			$(SRCALG)ft_a_add_value.c \
 			$(SRCALG)ft_a_blocked.c \
 			$(SRCMOV)ft_m_select.c \
