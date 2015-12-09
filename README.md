@@ -1,3 +1,3 @@
 # 2048
 
-Projet en C reprennant les regles du jeu 2048 avec la lib ncurses.
+Rush en groupe, ce projet en C avait pour but de refaire le jeu 2048 avec la lib ncurses.
